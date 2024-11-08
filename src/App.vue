@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <router-view />
+    <router-view class="min-h-screen bg-celes" />
   </Layout>
 </template>
 

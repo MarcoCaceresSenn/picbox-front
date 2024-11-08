@@ -16,6 +16,16 @@ export const routes = [
         name: 'Upload',
         path: '/upload-image',
         component: () => import('../views/UploadImageView.vue'),
+    },
+    {
+        name: 'ImageDetails',
+        path: '/image-details/:id',
+        component: () => import('../views/ImageDetailView.vue'),
+    },
+    {
+        name: 'EditImage',
+        path: '/edit-image/:id',
+        component: () => import('../views/EditImageView.vue'),
     }
 ]
 

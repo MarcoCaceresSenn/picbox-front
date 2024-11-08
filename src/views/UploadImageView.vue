@@ -1,6 +1,6 @@
 <template>
-    <div class="mt-20">
-        <ImageUpload />
+    <div class="mt-16">
+        <ImageUpload class="p-16" />
     </div>
 </template>
 

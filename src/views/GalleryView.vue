@@ -1,8 +1,7 @@
 <template>
-    <div class="gallery-container p-6">
+    <div class="gallery-container mt-16 p-6">
         <h1 class="text-3xl font-bold text-center mb-6">Galería de Imágenes</h1>
 
-        <!-- Botón para redirigir a la vista de carga de imágenes -->
         <div class="text-center mb-6">
             <router-link to="/upload-image">
                 <button class="bg-brown hover:bg-brownest text-white px-6 py-2 rounded-md transition-colors">
@@ -11,23 +10,23 @@
             </router-link>
         </div>
 
-        <!-- Lista de imágenes cargadas utilizando Tailwind Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <ImageCard v-for="image in images" :key="image.id" :imageUrl="image.url" :altText="image.title"
-                :tags="image.tags" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <router-link v-for="image in images" :key="image.id"
+                :to="{ name: 'ImageDetails', params: { id: image.id } }">
+                <ImageCard :imageUrl="image.url" :altText="image.title" :tags="image.tags" />
+            </router-link>
         </div>
 
-        <!-- Mensaje mientras se cargan las imágenes -->
         <div v-if="loading" class="text-center">
             <p>Cargando imágenes...</p>
         </div>
 
-        <!-- Mensaje de error si no se pueden cargar las imágenes -->
         <div v-if="error" class="text-center text-red-500">
             <p>Error al cargar imágenes. Intenta nuevamente.</p>
         </div>
     </div>
 </template>
+
 
 <script setup>
 import { ref, onMounted } from 'vue';
@@ -57,10 +56,3 @@ onMounted(() => {
     loadImages();
 });
 </script>
-
-<style scoped>
-.gallery-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-</style>
