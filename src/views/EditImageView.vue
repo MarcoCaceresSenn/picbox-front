@@ -80,6 +80,7 @@ const updateImage = async () => {
         console.error('Error al actualizar la imagen:', err);
         alert('Hubo un error al intentar actualizar la imagen');
     }
+
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center ">
+    <div class="flex justify-center">
         <BackGalleryButton />
         <div class="bg-white p-10 rounded-lg">
             <h2 class="text-3xl font-semibold text-center text-gray-900 mb-6">Subir Imagen</h2>
@@ -61,6 +61,9 @@ const error = ref(false);
 const tags = ref(''); // Aquí almacenamos los tags como un string
 const router = useRouter();
 
+// ID del usuario hardcodeado
+const userId = 1;
+
 // Maneja el cambio de archivo seleccionado
 const onFileChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -82,6 +85,7 @@ const uploadImage = async () => {
     formData.append('file', file.value);
     formData.append('title', title.value);
     formData.append('tags', tags.value); // Enviar los tags como una cadena separada por comas
+    formData.append('user_id', userId); // Mandar el user_id hardcodeado
 
     try {
         // Hacer la solicitud POST a tu API
