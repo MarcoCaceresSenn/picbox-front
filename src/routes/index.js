@@ -26,7 +26,13 @@ export const routes = [
         name: 'EditImage',
         path: '/edit-image/:id',
         component: () => import('../views/EditImageView.vue'),
-    }
+    },
+    {
+        name: 'Register',
+        path: '/register',
+        component: () => import('../views/RegistView.vue'),
+    },
+
 ]
 
 const router = createRouter({
