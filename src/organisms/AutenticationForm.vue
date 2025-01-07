@@ -27,16 +27,13 @@ import InputField from '@/molecules/InputField.vue';
 import TitleA from '@/atoms/TitleA.vue';
 import ButtonA from '@/atoms/ButtonA.vue';
 
-// Estado local para username, password y error
 const username = ref('');
 const password = ref('');
 const errorMessage = ref('');
 const router = useRouter();
 
-// Inyectar la función setUser que se proporciona desde App.vue
 const setUser = inject('setUser');
 
-// Función para manejar el login
 const handleLogin = async () => {
     try {
         errorMessage.value = ''; // Limpiar cualquier mensaje de error

@@ -9,8 +9,8 @@ describe('Gallery View', () => {
         cy.contains('Iniciar Sesión').should('be.visible');
 
         // Simulación del inicio de sesión
-        cy.get('input#username').type('your_username');
-        cy.get('input#password').type('your_password');
+        cy.get('input#username').type('test2@front.com');
+        cy.get('input#password').type('123456');
         cy.contains('Ingresar').click();
 
         cy.url().should('include', '/gallery');
